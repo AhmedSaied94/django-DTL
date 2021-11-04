@@ -1,0 +1,33 @@
+{% extends 'main/content.html' %}
+
+{% block main-content %}
+
+<table class="table table-striped" style="text-align: center;">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Priority</th>
+        <th scope="col">Discription</th>
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for task in tasks_list %}
+      <tr  {% if task.priority > 3 %} style="color:red;" {%else%} style="color:black;" {%endif%} >
+          <th scope="row">{{task.id}}</th>
+          <td>{{task.name}}</td>
+          <td>{{task.priority}}</td>
+          <td>{{task.discription | truncatewords:3}}</td>
+          <td>
+              <a class="btn btn-primary" href="{% url 'todo:todo-update' task.id %}">Update</a>
+              <a class="btn btn-primary" href="{% url 'todo:todo-details' task.id %}">Details</a>
+              <a class="btn btn-danger" href="{% url 'todo:todo-delete' task.id %}">Delete</a>
+          </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+</table>
+
+{%endblock%}

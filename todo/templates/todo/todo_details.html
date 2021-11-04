@@ -1,0 +1,31 @@
+{% extends 'main/content.html' %}
+
+{% block main-content %}
+
+<table class="table table-striped" style="text-align: center;">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Priority</th>
+        <th scope="col">Discription</th>
+        <th scope="col">Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr >
+          <th scope="row">{{id}}</th>
+          <td>{{name}}</td>
+          <td>{{priority}}</td>
+          <td>{{discription}}</td>
+          <td>
+              <a class="btn btn-primary" href="{% url 'todo:todo-update' id %}">Update</a>
+              <a class="btn btn-danger" href="{% url 'todo:todo-delete' id %}">Delete</a>
+          </td>
+      </tr>
+      
+    </tbody>
+</table>
+{%endblock%}
