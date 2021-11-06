@@ -11,8 +11,8 @@ class movies(models.Model):
     genre = models.CharField(null=True, max_length=255)
     plot = models.CharField(default="THis Is Film Descripe",max_length=400)
     language = models.CharField(default="English", max_length=255)
-    poster = models.ImageField(null=True,upload_to='movies/images')
-    video = models.FileField(null=True,upload_to='movies/videos')
+    poster = models.ImageField(null=True,blank=True,upload_to='movies/images')
+    video = models.FileField(null=True,blank=True,upload_to='movies/videos')
     imdp_rate = models.FloatField(default=0, null=True)
     active = models.BooleanField(default=True)
     likes = models.IntegerField(default=0, null=True)
@@ -29,7 +29,7 @@ class cast(models.Model):
     job = models.CharField(default="Actor",max_length=255)
     nationality = models.CharField(null=True,max_length=255)
     known_for = models.CharField(null=True,max_length=255)
-    profile_pic = models.ImageField(null=True,upload_to='actors/images')
+    profile_pic = models.ImageField(null=True,blank=True,upload_to='actors/images')
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
