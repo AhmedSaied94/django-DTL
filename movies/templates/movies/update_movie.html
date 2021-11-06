@@ -1,0 +1,25 @@
+{% extends 'main/content.html' %}
+
+{% block main-content %}
+
+<div class="container">
+    <form method="POST", action="{% url 'movies:update-movie' movie.id %}" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col text-left">
+            {% csrf_token %}
+            {{ form.as_ul }}
+           
+        </div>
+    </div>
+    <div class="row">
+        <div class="col text-left">
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <a href="{% url 'movies:movies-list' %}" class="btn btn-secondary">Movies List</a>
+        </div>
+    </div>
+</form>
+</div>
+
+
+
+{%endblock%}

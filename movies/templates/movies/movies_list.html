@@ -1,0 +1,43 @@
+{% extends 'main/content.html' %}
+
+{% block main-content %}
+
+
+<table class="table table-striped" style="text-align: center;">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Relased</th>
+        <th scope="col">Watched</th>
+        <th scope="col">Likes</th>
+        <th scope="col">Plot</th>
+        <th scope="col">Rated</th>
+        <th scope="col">Action</th>
+        
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for movie in all_movies %}
+      
+      <tr>
+          <th scope="row">{{movie.title | truncatewords:6}}</th>
+          <td>{{movie.relased}}</td>
+          <td>{{movie.watch_count}}</td>
+          <td>{{movie.likes | truncatewords:3}}</td>
+          <td>{{movie.Plot | truncatewords:3}}</td>
+          <td>{{movie.rated}}</td>
+          <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <a class="btn btn-primary btn-sm" href="{% url 'movies:movie-details' movie.id %}">Details</a>
+              <a class="btn btn-warning btn-sm" href="{% url 'movies:update-movie' movie.id %}">Edit</a>
+              <a class="btn btn-danger btn-sm" href="{% url 'movies:delete-movie' movie.id %}">Delete</a>
+              </div>
+          </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+</table>
+
+
+{%endblock%}

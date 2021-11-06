@@ -11,7 +11,7 @@ movies_list = [
     pip._vendor.requests.get("http://www.omdbapi.com/?t=batman&y=2021&plot=short&r=json&apikey=bd3ad5ed").json(),
     pip._vendor.requests.get("http://www.omdbapi.com/?t=venom&y=2021&plot=short&r=json&apikey=bd3ad5ed").json()
 ]
-print(movies_list)
+
 
 tasks_list = [
     {
