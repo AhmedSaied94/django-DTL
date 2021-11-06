@@ -2,7 +2,8 @@
 
 {% block main-content %}
 
-<table class="table table-striped" style="text-align: center;">
+<div class="container">
+    <table class="table table-striped" style="text-align: center;">
   <thead>
     <tr>
       <th scope="col">Title</th>
@@ -23,16 +24,21 @@
         <th scope="row">{{Title | truncatewords:6}}</th>
         <td>{{Year}}</td>
         <td>{{Runtime}}</td>
-        <td>{{Actors | truncatewords:3}}</td>
-        <td>{{Plot | truncatewords:3}}</td>
+        <td>{{Actors | truncatewords:2}}</td>
+        <td>{{Plot | truncatewords:2}}</td>
         <td>{{imdbRating}}</td>
         <td>
-            <a class="btn btn-primary" href="{% url 'todo:to-watch-update' imdbID %}">Watched</a>
-            <a class="btn btn-primary" href="{% url 'todo:to-watch-list'%}">List</a>
-            <a class="btn btn-danger" href="{% url 'todo:to-watch-delete' imdbID %}">Delete</a>
+          <div class="btn-group">
+            <a class="btn btn-primary btn-sm" href="{% url 'todo:to-watch-update' imdbID %}">Watched</a>
+            <a class="btn btn-secondary btn-sm" href="{% url 'todo:to-watch-list'%}">List</a>
+            <a class="btn btn-danger btn-sm" href="{% url 'todo:to-watch-delete' imdbID %}">Delete</a>
+            </div>
         </td>
     </tr>
 
   </tbody>
 </table>
+</div>
+
+
 {%endblock%}

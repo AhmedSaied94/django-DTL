@@ -2,8 +2,8 @@
 
 {% block main-content %}
 
-
-<table class="table table-striped" style="text-align: center;">
+<div class="container">
+    <table class="table table-striped" style="text-align: center;">
     <thead class="thead-dark">
       <tr>
         <th scope="col">Title</th>
@@ -25,7 +25,7 @@
           <td>{{movie.relased}}</td>
           <td>{{movie.watch_count}}</td>
           <td>{{movie.likes | truncatewords:3}}</td>
-          <td>{{movie.Plot | truncatewords:3}}</td>
+          <td>{{movie.plot | truncatewords:3}}</td>
           <td>{{movie.rated}}</td>
           <td>
             <div class="btn-group" role="group" aria-label="Basic example">
@@ -38,6 +38,8 @@
       {%endfor%}
     </tbody>
 </table>
+</div>
+
 
 
 {%endblock%}
