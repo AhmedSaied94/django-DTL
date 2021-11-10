@@ -43,8 +43,8 @@
             <tr>
               <th class="card-title" scope="row">Movies</th>
               <td class="card-text">
-                {% for p in cast.movies.all %}
-                {{p.title}}
+                {% for p in movies %}
+                <a href="{% url 'movies:movie-details' p.id %}">{{p.title}}</a>
                 {%endfor%}
               </td>
             </tr>

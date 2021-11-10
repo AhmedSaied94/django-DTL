@@ -64,18 +64,19 @@ def cast_update(request, pk):
         form = cast_form(data=request.POST, files=request.FILES, instance=u_cast)
         if form.is_valid():
             form.save()
-            return redirect("movies:cast-details")
-    return render(request, "movies/cast_update.html", context={"form":form, "cast":u_cast})
+            return redirect("movies:cast-details", pk=u_cast.id)
+    return render(request, "movies/update_cast.html", context={"form":form, "cast":u_cast})
 
 def cast_details(request, pk):
     u_cast = cast.objects.get(id=pk)
+    movies_li = movies.objects.filter(cast__id=pk)
     if request.method == "POST":
         c_text = request.POST.get('text')
         C_attachment = request.POST.get('attachment')
         cast_comment.objects.create(text=c_text, user=request.user, attachment=C_attachment, cast=u_cast)
         return redirect("movies:cast-details", pk=u_cast.id)
     else:
-        return render(request, "movies/cast_details.html", context={"cast":u_cast})
+        return render(request, "movies/cast_details.html", context={"cast":u_cast, "movies":movies_li})
 
 def cast_delete(request, pk):
     cast.objects.get(id=pk).delete()
