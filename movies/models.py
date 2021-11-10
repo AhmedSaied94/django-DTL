@@ -23,7 +23,7 @@ class movies(models.Model):
     active = models.BooleanField(default=True)
     likes = models.IntegerField(default=0, null=True)
     watch_count = models.IntegerField(default=0, null=True)
-    cast = models.ManyToManyField("cast", null=True, blank=True)
+    cast = models.ManyToManyField("cast")
     serial = models.OneToOneField("movies_serial", on_delete=CASCADE)
     class Meta:
         verbose_name_plural = "Movies"
@@ -45,7 +45,6 @@ class cast(models.Model):
     ssn = models.OneToOneField("cast_ssn", on_delete=CASCADE)
     
     class Meta:
-        verbose_name_plural = "Cast"
         ordering = ["age"]
 
     def __str__(self):

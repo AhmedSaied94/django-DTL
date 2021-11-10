@@ -103,3 +103,4 @@ def btn_like(request, cls, pk):
         u_cast = cast.objects.get(id=pk)
         cast.objects.filter(id=pk).update(likes=u_cast.likes+1)
         return redirect("movies:cast-details", pk=pk)
+

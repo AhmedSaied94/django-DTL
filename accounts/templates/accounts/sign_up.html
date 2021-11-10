@@ -1,0 +1,17 @@
+{% extends 'main/content.html'%}
+
+
+
+{% block main-content %}
+<div class="container">
+<div class="row my-4 ">
+<form action="{% url 'signup' %}" method="Post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" class="btn btn-outline-secondary">
+</form>
+</div>\
+</div>
+
+
+{%endblock%}

@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todo',	
-    'movies',
+    'movies.apps.MoviesConfig',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -133,6 +134,16 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = '/home/saied/django-labs/media_root'
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'saiednotifier@gmail.com'
+EMAIL_HOST_PASSWORD = 'ahmed7said'
+EMAIL_PORT = 587
+EMAIL_USE_TLS =True
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
