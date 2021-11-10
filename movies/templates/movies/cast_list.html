@@ -1,0 +1,46 @@
+{% extends 'main/content.html' %}
+
+{% block main-content %}
+
+<div class="container">
+    <table class="table table-striped" style="text-align: center;">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Job</th>
+        <th scope="col">Nationality</th>
+        <th scope="col">Known for</th>
+        <th scope="col">SSN</th>
+        <th scope="col">Action</th>
+        
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for cast in cast %}
+      
+      <tr>
+          <th scope="row">{{cast.first_name}} {{cast.last_name}}</th>
+          <td>{{cast.age}}</td>
+          <td>{{cast.job}}</td>
+          <td>{{cast.nationality}}</td>
+          <td>{{cast.known_for}}</td>
+          <td>{{cast.ssn}}</td>
+          <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <a class="btn btn-primary btn-sm" href="{% url 'movies:cast-details' cast.id %}">Details</a>
+              <a class="btn btn-warning btn-sm" href="{% url 'movies:update-cast' cast.id %}">Edit</a>
+              <a class="btn btn-danger btn-sm" href="{% url 'movies:delete-cast' cast.id %}">Delete</a>
+              </div>
+          </td>
+      </tr>
+      {%endfor%}
+    </tbody>
+</table>
+<div class="row mb-3"><a class="btn btn-outline-primary mx-auto" href="{% url 'movies:add-cast' %}">Add New Cast</a></div>
+</div>
+
+
+
+{%endblock%}

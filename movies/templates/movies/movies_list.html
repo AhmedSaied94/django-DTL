@@ -3,7 +3,7 @@
 {% block main-content %}
 
 <div class="container">
-    <table class="table table-striped" style="text-align: center;">
+    <table class="table table-striped mb-3" style="text-align: center;">
     <thead class="thead-dark">
       <tr>
         <th scope="col">Title</th>
@@ -12,6 +12,7 @@
         <th scope="col">Likes</th>
         <th scope="col">Plot</th>
         <th scope="col">Rated</th>
+        <th scope="col">Serial NO</th>
         <th scope="col">Action</th>
         
 
@@ -27,6 +28,7 @@
           <td>{{movie.likes | truncatewords:3}}</td>
           <td>{{movie.plot | truncatewords:3}}</td>
           <td>{{movie.rated}}</td>
+          <td>{{movie.serial}}</td>
           <td>
             <div class="btn-group" role="group" aria-label="Basic example">
               <a class="btn btn-primary btn-sm" href="{% url 'movies:movie-details' movie.id %}">Details</a>
@@ -38,6 +40,7 @@
       {%endfor%}
     </tbody>
 </table>
+<div class="row mb-3"><a class="btn btn-outline-primary mx-auto" href="{% url 'movies:add-movie' %}">Add New Movie</a></div>
 </div>
 
 
